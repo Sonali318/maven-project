@@ -3,12 +3,18 @@ pipeline
 	agent any
 		stages
 			{
-				stage('Example')
+				stage('Sonali')
 				{
 					steps
-					{	
-						echo 'This is Sonali'
+					{
+					
+						echo 'Sonali Vilasrao Suskar'
+						echo 'Sonali Vishal Sarade'
+					
 					}
+				
 				}
-			}	
-}			
+			}
+
+
+}
