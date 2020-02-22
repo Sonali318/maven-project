@@ -5,7 +5,8 @@ pipeline
   stages
   {
 	stage('scm checkout')
-	{
+	{	
+		agent {label 'maven'}
 		steps{
 		
 			git branch: 'master', url: ' https://github.com/Sonali318/maven-project'
@@ -16,7 +17,7 @@ pipeline
 	stage ('validate code')
 	
 	{
-		agent {label 'master'}
+		agent {label 'maven1'}
 		steps
 		{
 		
@@ -38,7 +39,7 @@ pipeline
 	}
 	stage ('compile code')
 	{
-		agent {label 'master'}
+		agent {label 'maven1'}
 		steps
 		{
 		
