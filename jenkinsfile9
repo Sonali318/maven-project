@@ -1,0 +1,49 @@
+pipeline
+{
+
+  agent any
+  stages
+  {
+	stage('scm checkout')
+	{
+		steps{
+		
+			git branch: 'master', url: ' https://github.com/Sonali318/maven-project'
+		
+		}
+	}
+	
+	stage ('parallel stage')
+	
+	{
+		parallel
+			{
+		
+		
+	    stage ('test code')
+	    {
+		
+		  steps
+		 {
+		
+		  withMaven(jdk: 'localjdk-1.8', maven: 'localmaven')
+		  {
+          sh 'mvn test'
+		  }
+		 }
+	   }
+	  stage ('package code')
+	  {
+		
+		steps
+		{
+		
+		withMaven(jdk: 'localjdk-1.8', maven: 'localmaven') 
+		{
+      sh 'mvn package'
+		}
+		}
+	}
+  }
+  }
+}
