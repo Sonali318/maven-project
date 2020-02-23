@@ -1,0 +1,30 @@
+
+pipeline
+{
+	agent any
+		stages
+			{
+				stage('scm checkout')
+					{
+						steps
+							{
+								git branch: 'master', url: ' https://github.com/Sonali318/maven-project'
+							}
+					}
+					stage('sonar and maven project')	
+						{
+							steps
+						{
+							sshagent(['cicd']) 
+								{
+    sh 'scp -o StrictHostKeyChecking=no  /var/lib/jenkins/workspace/build-ci-job/webapp/target/webapp.war  ec2-user@172.31.46.88:/usr/share/tomcat/webapps/*
+								}
+						}	
+
+						}
+									
+			}
+									
+}
+
+										
