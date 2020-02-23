@@ -20,32 +20,34 @@ pipeline
 			{
 		
 		
-	    stage ('test code')
-	    {
+			stage ('test code')
+			{
 		
-		  steps
-		 {
+				steps
+				{
 		
-		  withMaven(jdk: 'localjdk-1.8', maven: 'localmaven')
-		  {
-          sh 'mvn test'
-		  }
-		 }
-	   }
-	  stage ('package code')
-	  {
+					withMaven(jdk: 'localjdk-1.8', maven: 'localmaven')
+					{
+						sh 'mvn test'
+					}
+				}
+			}
+			stage ('package code')
+			{
 		
-		steps
-		{
+				steps
+				{
 		
-		withMaven(jdk: 'localjdk-1.8', maven: 'localmaven') 
-		{
-      sh 'mvn Package'
-		}
-		}
-	}
-  }
-  failFast: true
+					withMaven(jdk: 'localjdk-1.8', maven: 'localmaven') 
+					{
+						sh 'mvn Package'
+					}
+				}
+			}
+			}
+			
+	failFast true		
+  
   }
   
   
