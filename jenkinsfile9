@@ -40,7 +40,7 @@ pipeline
 		
 					withMaven(jdk: 'localjdk-1.8', maven: 'localmaven') 
 					{
-						sh 'mvn Package'
+						sh 'mvn package'
 					}
 				}
 			}
