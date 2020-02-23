@@ -1,4 +1,3 @@
-
 pipeline
 {
 	agent any
@@ -17,7 +16,7 @@ pipeline
 						{
 							sshagent(['cicd']) 
 								{
-    sh 'scp -o StrictHostKeyChecking=no  /var/lib/jenkins/workspace/build-ci-job/webapp/target/webapp.war  ec2-user@172.31.46.88:/usr/share/tomcat/webapps/*'
+    sh 'scp -o StrictHostKeyChecking=no  /var/lib/jenkins/workspace/maven-test-job/webapp/target/webapp.war   ec2-user@172.31.46.88:/usr/share/tomcat/webapps/*'
 								}
 						}	
 
