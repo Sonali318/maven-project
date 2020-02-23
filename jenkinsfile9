@@ -46,7 +46,7 @@ pipeline
 			}
 			}
 			
-	failFast true		
+	failFast false	
   
   }
   
